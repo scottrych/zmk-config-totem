@@ -144,10 +144,10 @@
 
         TextExpander {
             bindings = <
-       &none              &none  &lsl   &dtim          &none            &kp RA(RC(RG(K)))  &bt BT_SEL 1   &bt BT_SEL 2  &yup   &bt BT_SEL 4
-       &kp LS(LA(LG(S)))  &none  &none  &lsltr         &none            &none              &none          &none         &none  &none
-&none  &none              &none  &none  &kp LS(LG(C))  &kp LA(LG(V))    &none              &kp RC(RG(C))  &du_sh        &none  &kp RS(RA(RC(RG(K))))  &bt BT_CLR
-                                 &none  &none          &none            &none              &none          &none
+       &none              &none  &lsl   &dtim          &none                    &kp RA(RC(RG(K)))  &bt BT_SEL 1   &bt BT_SEL 2  &yup   &bt BT_SEL 4
+       &kp LS(LA(LG(S)))  &none  &none  &lsltr         &kp LS(LA(LC(LG(C))))    &none              &none          &none         &none  &none
+&none  &none              &none  &none  &kp LS(LG(C))  &kp LA(LG(V))            &none              &kp RC(RG(C))  &du_sh        &none  &kp RS(RA(RC(RG(K))))  &bt BT_CLR
+                                 &none  &none          &none                    &none              &none          &none
             >;
         };
 
