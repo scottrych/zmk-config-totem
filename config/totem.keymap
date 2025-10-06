@@ -44,20 +44,14 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             require-prior-idle-ms = <200>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
+            hold-trigger-key-positions = <33 34 35 36>;
         };
 
         mod: mod {
             compatible = "zmk,behavior-key-toggle";
             label = "MOD";
             #binding-cells = <1>;
-        };
-
-        new_behavior: new_behavior {
-            compatible = "zmk,behavior-toggle-layer";
-            label = "NEW_BEHAVIOR";
-            #binding-cells = <1>;
-            toggle-mode = "off";
         };
 
         hyper_meh: hyper_meh {
