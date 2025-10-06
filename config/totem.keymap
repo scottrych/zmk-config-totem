@@ -120,7 +120,7 @@
             &kp Q               &kp W           &kp L               &kp D             &kp P          &kp K        &kp M              &kp U                &kp Y            &kp SEMI
             &hm LEFT_CONTROL A  &hm LEFT_ALT S  &hm LEFT_COMMAND R  &hm LEFT_SHIFT T  &kp G          &kp F        &hm RIGHT_SHIFT N  &hm RIGHT_COMMAND E  &hm RIGHT_ALT I  &hm RIGHT_CONTROL O
 &caps_word  &kp BACKSLASH       &kp Z           &kp X               &kp C             &kp V          &kp J        &kp B              &kp H                &kp COMMA        &kp PERIOD           &kp APOS
-                                                &trans              &lm 1 TAB         &lm 2 ENTER    &lm 3 SPACE  &lm 4 BACKSPACE    &trans
+                                                &mt GLOBE GLOBE     &lm 1 TAB         &lm 2 ENTER    &lm 3 SPACE  &lm 4 BACKSPACE    &none
             >;
         };
 
@@ -144,10 +144,10 @@
 
         TextExpander {
             bindings = <
-       &none  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none   &none    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &yup   &bt BT_SEL 4
-       &apup  &kp C_VOLUME_DOWN     &none                 &lsltr  &none    &none         &none         &none         &none  &none
-&none  &none  &none                 &none                 &none   &none    &none         &none         &du_sh        &none  &none         &bt BT_CLR
-                                    &none                 &none   &none    &none         &none         &none
+       &none              &none  &lsl   &dtim          &none            &kp RA(RC(RG(K)))  &bt BT_SEL 1   &bt BT_SEL 2  &yup   &bt BT_SEL 4
+       &kp LS(LA(LG(S)))  &none  &none  &lsltr         &none            &none              &none          &none         &none  &none
+&none  &none              &none  &none  &kp LS(LG(C))  &kp LA(LG(V))    &none              &kp RC(RG(C))  &du_sh        &none  &kp RS(RA(RC(RG(K))))  &bt BT_CLR
+                                 &none  &none          &none            &none              &none          &none
             >;
         };
 
