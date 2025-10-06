@@ -15,6 +15,15 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        new_behavior: new_behavior {
+            compatible = "zmk,behavior-caps-word";
+            label = "NEW_BEHAVIOR";
+            #binding-cells = <0>;
+            continue-list = <CAPSLOCK>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
