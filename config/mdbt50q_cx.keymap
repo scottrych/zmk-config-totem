@@ -1,0 +1,163 @@
+/*
+ * ZMK Dongle Keymap for MDBT50Q-CX acting as USB receiver for Totem
+ * This keymap should match the totem.keymap exactly since the dongle
+ * acts as a transparent bridge between the wireless keyboard and USB
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    behaviors {
+        cw: cw {
+            compatible = "zmk,behavior-caps-word";
+            label = "CW";
+            #binding-cells = <0>;
+            continue-list = <CAPSLOCK>;
+        };
+
+        hm: hm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HM";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <200>;
+            hold-trigger-key-positions = <13 12 11 10 19 18 17 16>;
+        };
+
+        lm: lm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LM";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <200>;
+            flavor = "hold-preferred";
+            hold-trigger-key-positions = <33 34 35 36>;
+        };
+
+        mod: mod {
+            compatible = "zmk,behavior-key-toggle";
+            label = "MOD";
+            #binding-cells = <1>;
+        };
+
+        hyper_meh: hyper_meh {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HYPER_MEH";
+            bindings = <&mt>, <&mt>;
+
+            #binding-cells = <2>;
+            hold-trigger-key-positions = <32 37>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <200>;
+            flavor = "tap-preferred";
+        };
+    };
+
+    macros {
+        lsl: lsl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp L &kp S>;
+            label = "LSL";
+        };
+
+        lsltr: lsltr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp COLON &kp L &kp T>;
+            label = "LSLTR";
+        };
+
+        apup: apup {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp COLON &kp A &kp P &kp U &kp P>;
+            label = "APUP";
+        };
+
+        yup: yup {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp COLON &kp Y &kp U &kp P>;
+            label = "YUP";
+        };
+
+        dtim: dtim {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp D &kp T &kp I &kp M>;
+            label = "DTIM";
+        };
+
+        du_sh: du_sh {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp D &kp D &kp U &kp S>;
+            label = "DU_SH";
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        base {
+            bindings = <
+            &kp Q               &kp W           &kp L               &kp D             &kp P          &kp K        &kp M              &kp U                &kp Y            &kp SEMI
+            &hm LEFT_CONTROL A  &hm LEFT_ALT S  &hm LEFT_COMMAND R  &hm LEFT_SHIFT T  &kp G          &kp F        &hm RIGHT_SHIFT N  &hm RIGHT_COMMAND E  &hm RIGHT_ALT I  &hm RIGHT_CONTROL O
+&caps_word  &kp BACKSLASH       &kp Z           &kp X               &kp C             &kp V          &kp J        &kp B              &kp H                &kp COMMA        &kp PERIOD           &kp APOS
+                                                &mt GLOBE GLOBE     &lm 1 TAB         &lm 2 ENTER    &lm 3 SPACE  &lm 4 BACKSPACE    &none
+            >;
+        };
+
+        nav_num {
+            bindings = <
+         &kp F1  &kp F2  &kp F3  &kp LEFT_BRACKET      &kp RIGHT_BRACKET        &kp NUMBER_7  &kp N8        &kp N9        &kp PLUS   &kp ASTERISK
+         &kp F4  &kp F5  &kp F6  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp MINUS  &kp SLASH
+&kp F10  &kp F7  &kp F8  &kp F9  &kp LEFT_BRACE        &kp RIGHT_BRACE          &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL  &kp DOT       &kp CARET
+                         &trans  &trans                &trans                   &none         &none         &none
+            >;
+        };
+
+        sym_func {
+            bindings = <
+        &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans  &none   &none     &trans              &kp C_VOL_DN        &kp K_MUTE      &kp C_VOL_UP         &trans
+        &trans                &trans                &trans  &trans  &trans    &kp RG(LEFT_ARROW)  &kp LA(LEFT_ARROW)  &kp UP_ARROW    &kp RA(RIGHT_ARROW)  &kp RG(RIGHT_ARROW)
+&trans  &trans                &trans                &trans  &trans  &trans    &kp GLOBE           &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &trans               &trans
+                                                    &trans  &trans  &trans    &none               &trans              &trans
+            >;
+        };
+
+        TextExpander {
+            bindings = <
+       &none              &none  &lsl   &dtim          &none                    &kp RA(RC(RG(K)))  &bt BT_SEL 1   &bt BT_SEL 2  &yup   &bt BT_SEL 4
+       &kp LS(LA(LG(S)))  &none  &none  &lsltr         &kp LS(LA(LC(LG(C))))    &none              &none          &none         &none  &none
+&none  &none              &none  &none  &kp LS(LG(C))  &kp LA(LG(V))            &none              &kp RC(RG(C))  &du_sh        &none  &kp RS(RA(RC(RG(K))))  &bt BT_CLR
+                                 &none  &none          &none                    &none              &none          &none
+            >;
+        };
+
+        extra1 { status = "reserved"; };
+
+        extra2 { status = "reserved"; };
+
+        extra3 { status = "reserved"; };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        device {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+};
