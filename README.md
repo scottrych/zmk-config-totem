@@ -6,7 +6,7 @@ This repository contains the ZMK firmware configuration for a Totem split keyboa
 
 - **Keyboard**: Totem 38-key split keyboard
 - **Microcontrollers**: Seeeduino XIAO BLE (left and right halves)
-- **Dongle**: MDBT50Q-CX nRF52840 USB dongle (acts as receiver)
+- **Dongle**: Nordic nRF52840 USB Dongle (acts as receiver)
 - **Connection**: Wireless via Bluetooth Low Energy
 
 ## Firmware Files
@@ -15,7 +15,7 @@ This configuration builds **3 firmware files**:
 
 1. **`totem_left-seeeduino_xiao_ble.uf2`** - Left keyboard half (includes ZMK Studio support)
 2. **`totem_right-seeeduino_xiao_ble.uf2`** - Right keyboard half  
-3. **`totem_dongle-mdbt50q_cx.uf2`** - USB dongle/receiver
+3. **`totem_dongle-nrf52840dongle_nrf52840.uf2`** - USB dongle/receiver
 
 ## How It Works
 
@@ -55,14 +55,15 @@ For **Seeeduino XIAO BLE** boards:
 
 ### Flash the USB Dongle  
 
-For **MDBT50Q-CX** dongle:
+For **Nordic nRF52840 USB Dongle**:
 
 1. **Enter Bootloader Mode**:
    - Plug the dongle into a USB port
-   - If it doesn't appear as a USB storage device, try double-tapping any button on the dongle
+   - Press the RESET button on the dongle (small button on the side)
+   - The dongle should appear as "NRF52BOOT" USB storage device
 
 2. **Flash Dongle**:
-   - Drag `totem_dongle-mdbt50q_cx.uf2` to the USB storage device
+   - Drag `totem_dongle-nrf52840dongle_nrf52840.uf2` to the "NRF52BOOT" device
    - The dongle will reboot and appear as "TOTEM" keyboard
 
 ## Pairing Process
@@ -132,8 +133,8 @@ cd zmk-config-totem
 
 - `config/totem.keymap` - Main keymap for keyboard halves
 - `config/totem.conf` - Configuration for keyboard halves  
-- `config/mdbt50q_cx.keymap` - Keymap for USB dongle (mirrors main keymap)
-- `config/mdbt50q_cx.conf` - Configuration for USB dongle
+- `config/nrf52840dongle_nrf52840.keymap` - Keymap for USB dongle (mirrors main keymap)
+- `config/nrf52840dongle_nrf52840.conf` - Configuration for USB dongle
 - `build.yaml` - Build matrix for GitHub Actions
 
 ## Credits
