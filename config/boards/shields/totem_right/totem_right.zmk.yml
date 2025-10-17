@@ -1,0 +1,10 @@
+file_format: "1"
+id: totem_right
+name: Totem Right
+type: shield
+url: https://github.com/GEIGEIGEIST/TOTEM
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - totem_left
