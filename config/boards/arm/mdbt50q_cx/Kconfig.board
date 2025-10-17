@@ -1,8 +1,0 @@
-# MDBT50Q-CX board configuration
-
-# Copyright (c) 2020 The ZMK Contributors
-# SPDX-License-Identifier: MIT
-
-config BOARD_MDBT50Q_CX
-	bool "MDBT50Q-CX nRF52840 Dongle"
-	depends on SOC_NRF52840_QIAA

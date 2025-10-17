@@ -24,7 +24,7 @@ include:
     snippet: studio-rpc-usb-uart
   - board: seeeduino_xiao_ble
     shield: totem_right
-  - board: mdbt50q_cx
+  - board: nrf52840dongle_nrf52840
     artifact-name: totem_dongle
     snippet: studio-rpc-usb-uart
 # there is no settingsreset (needed) for the XIAO
